@@ -1,0 +1,23 @@
+body {
+  background-color: #88c3e3;
+}
+.hidden {
+  display: none;
+}
+.showBackground {
+  display: inline;
+}
+.show {
+  display: inline;
+  position: absolute;
+  left: 44       px;
+  top: -80%;
+  animation: slide 3s;
+}
+@keyframes slide {
+  0% { top: -150%; }
+  35% { top: 50%; }
+  65% { top: 50%; }
+  100% { top: 150%; }
+}
+

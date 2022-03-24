@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>hangcat.</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /> -->
+      <link href="hangman.css" rel="stylesheet">
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <img src="hangcat-start.png" id="hangcat-img">
+  </div>
+  <div class="container-fluid">
+    <img src="hangcat-start.png" id="hangcat-final-background" class = "hidden">
+  </div>
+  <div class="container-fluid">
+    <img src="hangcat-fall.png" id="falling-cat" class = "hidden">
+  </div>
+  <div class="container-fluid">
+    <div class="row my-4">
+      <h3 id="phrase">Random word loading...</h3>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <form id="guess-letter-form">
+      <div class="form-group mb-2">
+        <label for="guess">Type a letter</label>
+        <input id="guessLetter" name="guessLetter" class="form-control" type="text" pattern="[a-zA-Z]" />
+      </div>
+      <div class="form-group mb-2">
+        <input id="submit" class="btn btn-primary" type="submit" value="Guess!" />
+      </div>
+    </form>
+    <div class="container-fluid">
+      <div class="row my-4">
+        <h3 id="update"><p style="color:black"</p> </h3>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row my-4">
+        <h3 id="guessed"> </h3>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- <script src="api-key.js"></script> -->
+  <script src="hangman.js"></script>
+</body>
