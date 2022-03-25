@@ -2,7 +2,8 @@ const form = document.getElementById('guess-letter-form');
 const phrase = document.getElementById('phrase');
 const udpateUser = document.getElementById('update');
 const alreadyGuessed = document.getElementById('guessed');
-const wordURL = 'https://random-word-api.herokuapp.com/word?number=1';
+const wordURL = 'https://random-words-api.vercel.app/word'
+const words = ["computer", "baby", "house", "dinner", "mountain"]
 let guessLetter = document.getElementById('guessLetter');
 let wrongLetter = [];
 let guessesRemaining = 6;
@@ -17,7 +18,8 @@ function getRandomWord() {
             return data.json();
         })
         .then(function (responseJson) {
-            const randomWord = responseJson[0];
+            const randomWord = responseJson[0].word.toUpperCase();
+            console.log(randomWord)
             return randomWord;
         })
 };
@@ -32,7 +34,7 @@ getRandomWord().then(randomWord => {
         const hangCatFinalBackground = document.getElementById('hangcat-final-background');
         const fallingCat = document.getElementById('falling-cat');
         e.preventDefault();
-        if (randomWord.includes(guessLetter.value) === false) {
+        if (randomWord.includes(guessLetter.value.toUpperCase()) === false) {
             udpateUser.innerText = "Guess again!"
             if (wrongLetter.includes(guessLetter.value.toUpperCase())) {
                 udpateUser.innerText = `You already guessed ${guessLetter.value.toUpperCase()}, try again!`
@@ -64,7 +66,7 @@ getRandomWord().then(randomWord => {
         }
         else {
             randomWord.split("").map((letter, index) => {
-                if (letter === guessLetter.value) {
+                if (letter === guessLetter.value.toUpperCase()) {
                     udpateUser.innerText = "Correct!"
                     emptyPhrase[index] = randomWord[index];
                     phrase.innerText = emptyPhrase.join(' ').toUpperCase();
